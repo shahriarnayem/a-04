@@ -10,15 +10,29 @@ const allFilterBtn = document.getElementById('all-filter-btn');
 const interviewFilterBtn = document.getElementById('interview-filter-btn');
 const rejectedFilterBtn = document.getElementById('rejected-filter-btn');
 
-const CardsSection = document.getElementById('cards');
+const cardsSection = document.getElementById('cards');
 const mainContainer = document.querySelector('main');
 const filterSection = document.getElementById('filter-section');
 
+function noJobs() {
+    return `
+        <div class="flex flex-col items-center justify-center py-20 w-full">
+            <img src="./jobs.png" class="w-16 opacity-50 mb-4" alt="No jobs">
+            <h2 class="text-2xl font-bold text-black">No jobs available</h2>
+            <p class="text-gray-500">Check back soon for new job opportunities</p>
+        </div>
+    `;
+}
+
 
 function jobsCount() {
-    total.innerText = CardsSection.children.length;
+    total.innerText = cardsSection.children.length;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
+
+    if (cardsSection.children.length === 0 && currentStatus === 'all-filter-btn') {
+        cardsSection.innerHTML = noJobs();
+    }
 }
 
 jobsCount();
@@ -40,16 +54,19 @@ function toggleStyle(id) {
     selected.classList.add('bg-black', 'text-white');
 
     if (id == 'interview-filter-btn') {
-        CardsSection.classList.add('hidden');
-        filterSection.classList.remove('hidden');
-        renderInterview();
+        cardsSection.classList.add('hidden');
+        filterSection.classList.remove('hidden')
+        renderInterview()
     } else if (id == 'all-filter-btn') {
-        CardsSection.classList.remove('hidden');
-        filterSection.classList.add('hidden');
+        cardsSection.classList.remove('hidden');
+        filterSection.classList.add('hidden')
+        if (cardsSection.children.length === 0) {
+             CardsSection.innerHTML = noJobs();
+        }
     } else if (id == 'rejected-filter-btn') {
-        CardsSection.classList.add('hidden');
-        filterSection.classList.remove('hidden');
-        renderRejected();
+        cardsSection.classList.add('hidden');
+        filterSection.classList.remove('hidden')
+        renderRejected()
     }
 }
 
@@ -134,11 +151,32 @@ mainContainer.addEventListener('click', function (event) {
         }
         
         jobsCount();
+
+    } else if (event.target.classList.contains('delete-btn')) {
+        const parenNode = event.target.parentNode.parentNode;
+        const jobTitle = parenNode.querySelector('.job-title').innerText;
+
+        parenNode.remove();
+
+        interviewList = interviewList.filter(item => item.jobTitle != jobTitle);
+        rejectedList = rejectedList.filter(item => item.jobTitle != jobTitle);
+
+        if (currentStatus == 'interview-filter-btn') {
+            renderInterview();
+        } else if (currentStatus == 'rejected-filter-btn') {
+            renderRejected();
+        }
+        jobsCount();
     }
 });
 
 function renderInterview() {
     filterSection.innerHTML = '';
+
+    if (interviewList.length === 0) {
+        filterSection.innerHTML = noJobs();
+        return;
+    }
 
     for (let interview of interviewList) {
         let div = document.createElement('div');
@@ -174,6 +212,11 @@ function renderInterview() {
 
 function renderRejected() {
     filterSection.innerHTML = '';
+
+    if (rejectedList.length === 0) {
+        filterSection.innerHTML = noJobs();
+        return;
+    }
     
     for (let rejected of rejectedList) {
         let div = document.createElement('div');
@@ -206,3 +249,5 @@ function renderRejected() {
         filterSection.appendChild(div);
     }
 }
+
+
