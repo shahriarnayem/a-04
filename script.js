@@ -77,7 +77,7 @@ mainContainer.addEventListener('click', function (event) {
         const parenNode = event.target.parentNode.parentNode;
 
         const jobTitle = parenNode.querySelector('.job-title').innerText;
-        const jobSubTitle = parenNode.querySelector('.job-subtitle').innerText;
+        const companyName = parenNode.querySelector('.company-name').innerText;
         const jobLocation = parenNode.querySelector('.working-location').innerText;
         const jobType = parenNode.querySelector('.job-type').innerText;
         const jobSalary = parenNode.querySelector('.job-salery').innerText;
@@ -88,7 +88,7 @@ mainContainer.addEventListener('click', function (event) {
 
         const cardInfo = {
             jobTitle,
-            jobSubTitle,
+            companyName,
             jobLocation,
             jobType,
             jobSalary,
@@ -117,7 +117,7 @@ mainContainer.addEventListener('click', function (event) {
         const parenNode = event.target.parentNode.parentNode;
 
         const jobTitle = parenNode.querySelector('.job-title').innerText;
-        const jobSubTitle = parenNode.querySelector('.job-subtitle').innerText;
+        const companyName = parenNode.querySelector('.company-name').innerText;
         const jobLocation = parenNode.querySelector('.working-location').innerText;
         const jobType = parenNode.querySelector('.job-type').innerText;
         const jobSalary = parenNode.querySelector('.job-salery').innerText;
@@ -128,7 +128,7 @@ mainContainer.addEventListener('click', function (event) {
 
         const cardInfo = {
             jobTitle,
-            jobSubTitle,
+            companyName,
             jobLocation,
             jobType,
             jobSalary,
@@ -180,12 +180,12 @@ function renderInterview() {
 
     for (let interview of interviewList) {
         let div = document.createElement('div');
-        div.className = 'card flex justify-between bg-gray-200 p-8 rounded-2xl';
+        div.className = 'card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8';
         div.innerHTML = `
          <div class="space-y-4">
                 <div>
                     <p class="job-title text-2xl">${interview.jobTitle}</p>
-                    <p class="job-subtitle">${interview.jobSubTitle}</p>
+                    <p class="company-name">${interview.companyName}</p>
                 </div>
                 <div class="flex gap-2">
                     <p class="working-location">${interview.jobLocation}</p>
@@ -219,12 +219,12 @@ function renderRejected() {
     
     for (let rejected of rejectedList) {
         let div = document.createElement('div');
-        div.className = 'card flex justify-between bg-gray-200 p-8 rounded-2xl';
+        div.className = 'card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8';
         div.innerHTML = `
             <div class="space-y-4">
                 <div>
                     <p class="job-title text-2xl">${rejected.jobTitle}</p>
-                    <p class="job-subtitle">${rejected.jobSubTitle}</p>
+                    <p class="company-name">${rejected.companyName}</p>
                 </div>
                 <div class="flex gap-2">
                     <p class="working-location">${rejected.jobLocation}</p>

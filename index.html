@@ -12,9 +12,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <header class="container mx-auto my-5">
+    <header class="container mx-auto my-5 p-5">
         <h1 class="text-4xl text-black">Job Application Tracker</h1>
-        <div class="grid grid-cols-3 gap-6 my-6">
+        <div class="grid gap-6 my-6 lg:grid-cols-3 md:grid-cols-3">
             <div class="p-6 bg-gray-200 rounded-2xl flex flex-col gap-3">
                 <h3>Total</h3>
                 <p id="totalCount">0</p>
@@ -31,7 +31,7 @@
     </header>
     <hr class="my-5">
 
-    <main class="container mx-auto">
+    <main class="container mx-auto p-5">
         <div class="mb-8 flex gap-4">
             <button onclick="toggleStyle('all-filter-btn')" class="bg-black text-white px-5 py-2 rounded-[8px]" id="all-filter-btn">All</button>
             <button onclick="toggleStyle('interview-filter-btn')" class="bg-gray-300 px-5 py-2 rounded-[8px]" id="interview-filter-btn">Interview</button>
@@ -40,13 +40,13 @@
         <section id="filter-section" class="hidden">
 
         </section>
-        <div id="cards" class="flex flex-col gap-6">
+        <div id="cards" class="flex flex-col">
             <!-- card 1 -->
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">Frontend Developer</p>
-                        <p class="job-subtitle">React, JavaScript, Tailwind</p>
+                        <p class="company-name">ABC agency</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
@@ -67,11 +67,11 @@
                     <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
                 </div>
             </div>
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">Backend Developer</p>
-                        <p class="job-subtitle">Node.js, Express, MongoDB</p>
+                        <p class="company-name">Programming Hero</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
@@ -92,11 +92,11 @@
                     <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
                 </div>
             </div>
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">Wordpress Developer</p>
-                        <p class="job-subtitle">Theme & Plugin Customization</p>
+                        <p class="company-name">WebSolutions</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
@@ -117,11 +117,11 @@
                     <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
                 </div>
             </div>
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">UI/UX Designer</p>
-                        <p class="job-subtitle">Figma, Adobe XD</p>
+                        <p class="company-name">Design Studio</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
@@ -142,11 +142,11 @@
                     <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
                 </div>
             </div>
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">Mobile App Developer</p>
-                        <p class="job-subtitle">Flutter, Dart</p>
+                        <p class="company-name">Apps Maker</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
@@ -167,11 +167,11 @@
                     <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
                 </div>
             </div>
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">Digital Marketing Specialist</p>
-                        <p class="job-subtitle">SEO, Facebook Ads, Google Ads</p>
+                        <p class="company-name">A to Z Marketing</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
@@ -192,11 +192,11 @@
                     <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
                 </div>
             </div>
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">DevOps Engineer</p>
-                        <p class="job-subtitle">AWS, Docker, CI/CD</p>
+                        <p class="company-name">The Best Software</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
@@ -217,11 +217,11 @@
                     <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
                 </div>
             </div>
-            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl">
+            <div class="card flex justify-between bg-gray-200 p-8 rounded-2xl mb-8">
                 <div class="space-y-4">
                     <div>
                         <p class="job-title text-2xl">QA Engineer</p>
-                        <p class="job-subtitle">Manual & Automated Testing</p>
+                        <p class="company-name">XYZ Agancy</p>
                     </div>
                     <div class="flex gap-2">
                         <p class="working-location">Remote</p>
