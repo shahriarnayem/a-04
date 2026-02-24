@@ -180,31 +180,30 @@ function renderInterview() {
 
     for (let interview of interviewList) {
         let div = document.createElement('div');
-        div.className = 'card flex justify-between border p-8 mb-4';
+        div.className = 'card flex justify-between bg-gray-200 p-8 rounded-2xl';
         div.innerHTML = `
          <div class="space-y-4">
-                    <div>
-                        <p class="job-title text-2xl font-bold">${interview.jobTitle}</p>
-                        <p class="job-subtitle">${interview.jobSubTitle}</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <p class="working-location">${interview.jobLocation}</p>
-                        <p>-</p>
-                        <p class="job-type">${interview.jobType}</p>
-                        <p>-</p>
-                        <p class="job-salery">${interview.jobSalary}</p>
-                    </div>
-                     <p class="job-status bg-gray-200 px-4 py-2 inline-block" >${interview.jobStatus}</p>
-                     <p class="short-des">${interview.shortDes}</p>
-
-                     <div class="flex gap-5">
-                        <button class="interview-btn bg-green-200 px-4 py-2">Interview</button>
-                        <button class="rejected-btn bg-red-200 px-4 py-2">Rejected</button>
-                     </div>
-                </div>
                 <div>
-                    <button class="delete-btn bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                    <p class="job-title text-2xl">${interview.jobTitle}</p>
+                    <p class="job-subtitle">${interview.jobSubTitle}</p>
                 </div>
+                <div class="flex gap-2">
+                    <p class="working-location">${interview.jobLocation}</p>
+                    <p>-</p>
+                    <p class="job-type">${interview.jobType}</p>
+                    <p>-</p>
+                    <p class="job-salery">${interview.jobSalary}</p>
+                </div>
+                    <p class="job-status bg-gray-200 px-4 py-2" >${interview.jobStatus}</p>
+                    <p class="short-des">${interview.shortDes}</p>
+                <div class="flex gap-5">
+                   <button class="interview-btn border-3 border-green-500 text-green-500 px-6 py-2 rounded-[8px] cursor-pointer">Interview</button>
+                   <button class="rejected-btn border-3 border-red-500 text-red-500 px-6 py-2 rounded-[8px] cursor-pointer">Rejected</button>
+                </div>
+            </div>
+            <div>
+                <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
+            </div>
         `;
         filterSection.appendChild(div);
     }
@@ -220,31 +219,30 @@ function renderRejected() {
     
     for (let rejected of rejectedList) {
         let div = document.createElement('div');
-        div.className = 'card flex justify-between border p-8 mb-4';
+        div.className = 'card flex justify-between bg-gray-200 p-8 rounded-2xl';
         div.innerHTML = `
-         <div class="space-y-4">
-                    <div>
-                        <p class="job-title text-2xl font-bold">${rejected.jobTitle}</p>
-                        <p class="job-subtitle">${rejected.jobSubTitle}</p>
-                    </div>
-                    <div class="flex gap-2">
-                        <p class="working-location">${rejected.jobLocation}</p>
-                        <p>-</p>
-                        <p class="job-type">${rejected.jobType}</p>
-                        <p>-</p>
-                        <p class="job-salery">${rejected.jobSalary}</p>
-                    </div>
-                     <p class="job-status bg-gray-200 px-4 py-2 inline-block" >${rejected.jobStatus}</p>
-                     <p class="short-des">${rejected.shortDes}</p>
-
-                     <div class="flex gap-5">
-                        <button class="interview-btn bg-green-200 px-4 py-2">Interview</button>
-                        <button class="rejected-btn bg-red-200 px-4 py-2">Rejected</button>
-                     </div>
-                </div>
+            <div class="space-y-4">
                 <div>
-                    <button class="delete-btn bg-red-200 text-red-600 px-4 py-2">Delete</button>
+                    <p class="job-title text-2xl">${rejected.jobTitle}</p>
+                    <p class="job-subtitle">${rejected.jobSubTitle}</p>
                 </div>
+                <div class="flex gap-2">
+                    <p class="working-location">${rejected.jobLocation}</p>
+                    <p>-</p>
+                    <p class="job-type">${rejected.jobType}</p>
+                    <p>-</p>
+                    <p class="job-salery">${rejected.jobSalary}</p>
+                </div>
+                    <p class="job-status bg-gray-200 px-4 py-2" >${rejected.jobStatus}</p>
+                    <p class="short-des">${rejected.shortDes}</p>
+                <div class="flex gap-5">
+                   <button class="interview-btn border-3 border-green-500 text-green-500 px-6 py-2 rounded-[8px] cursor-pointer">Interview</button>
+                   <button class="rejected-btn border-3 border-red-500 text-red-500 px-6 py-2 rounded-[8px] cursor-pointer">Rejected</button>
+                </div>
+            </div>
+            <div>
+                <button class="delete-btn text-black border-2 p-2 aspect-square rounded-[8px] cursor-pointer"><i class="fa-regular fa-trash-can"></i></i></button>
+            </div>
         `;
         filterSection.appendChild(div);
     }
