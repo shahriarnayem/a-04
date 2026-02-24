@@ -54,7 +54,7 @@ function toggleStyle(id) {
 }
 
 
-// step 2 delegation
+
 mainContainer.addEventListener('click', function (event) {
     if (event.target.classList.contains('interview-btn')) {
         const parenNode = event.target.parentNode.parentNode;
@@ -63,7 +63,7 @@ mainContainer.addEventListener('click', function (event) {
         const jobSubTitle = parenNode.querySelector('.job-subtitle').innerText;
         const jobLocation = parenNode.querySelector('.working-location').innerText;
         const jobType = parenNode.querySelector('.job-type').innerText;
-        const jobSalary = parenNode.querySelector('.job-salery').innerText; // Matches your HTML spelling
+        const jobSalary = parenNode.querySelector('.job-salery').innerText;
         const jobStatus = parenNode.querySelector('.job-status').innerText;
         const shortDes = parenNode.querySelector('.short-des').innerText;
 
@@ -85,10 +85,8 @@ mainContainer.addEventListener('click', function (event) {
             interviewList.push(cardInfo);
         }
 
-        // removing from rejected list if it exists there
         rejectedList = rejectedList.filter(item => item.jobTitle != cardInfo.jobTitle);
 
-        // after remove rerender the html
         if (currentStatus == 'interview-filter-btn') {
             renderInterview();
         } else if (currentStatus == 'rejected-filter-btn') {
@@ -127,10 +125,8 @@ mainContainer.addEventListener('click', function (event) {
             rejectedList.push(cardInfo);
         }
 
-        // removing from interview list if it exists there
         interviewList = interviewList.filter(item => item.jobTitle != cardInfo.jobTitle);
 
-        // after remove rerender the html
         if (currentStatus == "rejected-filter-btn") {
             renderRejected();
         } else if (currentStatus == "interview-filter-btn") {
@@ -141,14 +137,10 @@ mainContainer.addEventListener('click', function (event) {
     }
 });
 
-// step 3 html file create
 function renderInterview() {
-    // make the filterSection empty every time
     filterSection.innerHTML = '';
 
-    // crating innerHtml
     for (let interview of interviewList) {
-
         let div = document.createElement('div');
         div.className = 'card flex justify-between border p-8 mb-4';
         div.innerHTML = `
@@ -181,12 +173,9 @@ function renderInterview() {
 }
 
 function renderRejected() {
-    // make the filterSection empty every time
     filterSection.innerHTML = '';
     
-    // crating innerHtml
     for (let rejected of rejectedList) {
-
         let div = document.createElement('div');
         div.className = 'card flex justify-between border p-8 mb-4';
         div.innerHTML = `
